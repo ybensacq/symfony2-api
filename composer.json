@@ -1,0 +1,56 @@
+{
+    "name": "symfony2-api-edition",
+    "license": "MIT",
+    "type": "project",
+    "description": "Symfony2 API Edition",
+    "autoload": {
+        "psr-4": { "": "src/" },
+        "classmap": [ "app/AppKernel.php", "app/AppCache.php" ]
+    },
+    "repositories": [
+      {
+        "type": "vcs",
+        "url": "https://github.com/Cethy/swagger-bundle-tools"
+      }
+    ],
+    "require": {
+        "php": ">=5.4",
+        "symfony/symfony": "2.8.*",
+        "doctrine/orm": "^2.4.8",
+        "doctrine/doctrine-bundle": "~1.4",
+        "symfony/monolog-bundle": "~2.4",
+        "incenteev/composer-parameter-handler": "~2.0",
+
+        "kleijnweb/swagger-bundle": ">=2.2",
+        "jms/serializer": "^1.1",
+        "doctrine/migrations": "^1.2"
+    },
+    "require-dev": {
+        "sensio/generator-bundle": "~3.0",
+        "symfony/phpunit-bridge": "~2.7",
+
+        "kleijnweb/swagger-bundle-tools": "dev-fix-composer"
+    },
+    "scripts": {
+        "post-install-cmd": [
+            "Incenteev\\ParameterHandler\\ScriptHandler::buildParameters"
+        ],
+        "post-update-cmd": [
+            "Incenteev\\ParameterHandler\\ScriptHandler::buildParameters"
+        ]
+    },
+    "config": {
+        "bin-dir": "bin"
+    },
+    "extra": {
+        "symfony-app-dir": "app",
+        "symfony-web-dir": "web",
+        "symfony-assets-install": "relative",
+        "incenteev-parameters": {
+            "file": "app/config/parameters.yml"
+        },
+        "branch-alias": {
+            "dev-master": "2.8-dev"
+        }
+    }
+}
